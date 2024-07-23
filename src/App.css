@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*custom Button css */
+.custom-btn {
+  max-width: 340px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: rgba(255, 206, 34, 1);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(31, 33, 40, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.custom-btn:hover {
+  background: rgba(255, 216, 77, 1);
+}
+
+.custom-btn:active {
+  background-color: rgba(255, 206, 34, 1);
+}
+
+/* Custom Checkbox css */
+input[type="checkbox"].custom-checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 6px;
+  border: 1px solid rgba(205, 205, 205, 1);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  content: "";
+  cursor: pointer;
+}
+
+.page-box:hover {
+  cursor: pointer;
+}
+
+input[type="checkbox"].custom-checkbox:hover {
+  content: url(./assets/icons/hover-check.svg);
+  padding: 3px;
+}
+
+input[type="checkbox"].custom-checkbox:active {
+  content: url(./assets/icons/click-check.svg);
+  padding: 3px;
+  outline: 3px solid rgba(36, 105, 246, 0.1);
+}
+
+input[type="checkbox"].custom-checkbox:checked {
+  content: url(./assets/icons/checked-tick.svg);
+  padding: 3px;
+  background-color: rgba(80, 135, 248, 1);
+  border: none;
+}
+
+input[type="checkbox"].custom-checkbox:checked:not(:hover) {
+  content: url(./assets/icons/checked-not-hover.svg);
+  padding: 3px;
+  background-color: rgba(36, 105, 246, 1);
+}
+
+/* input[type="checkbox"].custom-checkbox:checked:hover {
+  content: url(./assets/icons/checked-hover.svg);
+  padding: 3px;
+  background-color: rgba(80, 135, 248, 1);
+} */
+
+/* Page with custom check box */
+
+.page-box {
+  display: flex;
+
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 8px 15px 8px 22px;
+}
+
+.container {
+  width: 370px;
+  height: 326px;
+  padding: 10px 0;
+  border-radius: 6px 0 0 0;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(238, 238, 238);
+  box-shadow: 0px 8px 15px 0px rgba(20, 20, 20, 0.12),
+    0px 0px 4px 0px rgba(20, 20, 20, 0.1);
+}
