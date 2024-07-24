@@ -1,9 +1,9 @@
-import React from "react";
-
-function ButtonComponent() {
+function ButtonComponent({ handleClick }) {
   return (
-    <div>
-      <button className="custom-btn">Done</button>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <button className="custom-btn" onClick={handleClick}>
+        Done
+      </button>
     </div>
   );
 }

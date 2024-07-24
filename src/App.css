@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
 /*custom Button css */
 .custom-btn {
   max-width: 340px;
@@ -67,14 +71,7 @@ input[type="checkbox"].custom-checkbox:checked:not(:hover) {
   background-color: rgba(36, 105, 246, 1);
 }
 
-/* input[type="checkbox"].custom-checkbox:checked:hover {
-  content: url(./assets/icons/checked-hover.svg);
-  padding: 3px;
-  background-color: rgba(80, 135, 248, 1);
-} */
-
-/* Page with custom check box */
-
+/* Page css with check box */
 .page-box {
   display: flex;
 
@@ -83,13 +80,22 @@ input[type="checkbox"].custom-checkbox:checked:not(:hover) {
   padding: 8px 15px 8px 22px;
 }
 
+
 .container {
   width: 370px;
-  height: 326px;
+  height: 100%;
   padding: 10px 0;
-  border-radius: 6px 0 0 0;
-  background: rgb(255, 255, 255);
+  border-radius: 6px;
   border: 1px solid rgb(238, 238, 238);
   box-shadow: 0px 8px 15px 0px rgba(20, 20, 20, 0.12),
     0px 0px 4px 0px rgba(20, 20, 20, 0.1);
+}
+
+
+
+.line {
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.7px solid rgba(205, 205, 205, 1);
+  max-width: 340px;
 }

@@ -1,63 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonComponent from "./components/ButtonComponent";
-import CheckBox from "./components/CheckBox";
 import PageWithCheckBox from "./components/PageWithCheckBox";
-
-const pages = [
-  {
-    pageName: "Page 1",
-    pageStatus: false,
-    pageId: 1,
-  },
-  {
-    pageName: "Page 2",
-    pageStatus: false,
-    pageId: 2,
-  },
-  {
-    pageName: "Page 3",
-    pageStatus: false,
-    pageId: 3,
-  },
-  {
-    pageName: "Page 4",
-    pageStatus: false,
-    pageId: 4,
-  },
-];
+import { CheckboxProvider, useCheckboxContext } from "./CheckboxContext";
+import DisplayResult from "./components/DisplayResult";
 
 function App() {
-  const [allPages, setAllPages] = useState(false);
+  // Access the checkbox state from context
+  const { state } = useCheckboxContext();
+  const [showResult, setshowResult] = useState(false);
 
-  const handleCheckBox = (e) => {
-   
+  useEffect(() => {
+    setshowResult(false);
+  }, [state]);
+
+  // Handle button click
+  const handleClick = () => {
+    setshowResult(true);
+    // Log selected pages to console
+    console.log(
+      "Selected pages:",
+      state.pages.filter((page) => page.pageStatus)
+    );
   };
 
-  const handleAllPageCheck = (e) => {
-    
-  };
   return (
     <section
-      style={{ display: "flex", justifyContent: "center", marginTop: "5em" }}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "5em",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
     >
       <div className="container">
-        <PageWithCheckBox
-          pageName={"All pages"}
-          checkBoxId={"allPages"}
-          handleCheckBox={handleCheckBox}
-        />
-        <hr />
+        {/* "All pages" checkbox */}
+        <PageWithCheckBox pageName={"All pages"} checkBoxId={"allPages"} />
+        <hr className="line" />
         <div>
-          {pages.map((page) => (
-            <PageWithCheckBox
-              key={page.pageId}
-              pageName={page.pageName}
-              checkBoxId={page.pageId}
-              handleCheckBox={handleCheckBox}
-            />
-          ))}
+          {/* Individual page checkboxes */}
+          <PageWithCheckBox checkBoxId={"pages"} />
+        </div>
+
+        <hr className="line" />
+        <div style={{ padding: 10 }}>
+          <ButtonComponent handleClick={handleClick} />
         </div>
       </div>
+      <div>{showResult && <DisplayResult />}</div>
     </section>
   );
 }

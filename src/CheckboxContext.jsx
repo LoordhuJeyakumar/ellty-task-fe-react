@@ -1,7 +1,9 @@
 import React, { useReducer, createContext, useContext } from "react";
 
+// Create a context for the checkbox state
 const CheckboxContext = createContext();
 
+// Initial state for the checkboxes
 const initialState = {
   allPages: false,
   pages: [
@@ -12,9 +14,11 @@ const initialState = {
   ],
 };
 
+// Reducer function to handle state updates
 function checkboxReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_PAGE":
+      // Toggle individual page status
       const newPages = state.pages.map((page) =>
         page.pageId === action.payload
           ? { ...page, pageStatus: !page.pageStatus }
@@ -23,9 +27,11 @@ function checkboxReducer(state, action) {
       return {
         ...state,
         pages: newPages,
+        // Update allPages status based on all individual pages
         allPages: newPages.every((page) => page.pageStatus),
       };
     case "TOGGLE_ALL_PAGES":
+      // Toggle all pages status
       const newAllPagesStatus = !state.allPages;
       return {
         allPages: newAllPagesStatus,
@@ -39,6 +45,7 @@ function checkboxReducer(state, action) {
   }
 }
 
+// Provider component to wrap the app and provide the checkbox context
 export function CheckboxProvider({ children }) {
   const [state, dispatch] = useReducer(checkboxReducer, initialState);
 
@@ -49,6 +56,7 @@ export function CheckboxProvider({ children }) {
   );
 }
 
+// Custom hook to use the checkbox context
 export function useCheckboxContext() {
   return useContext(CheckboxContext);
 }
